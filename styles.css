@@ -590,6 +590,7 @@ section {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 1rem;
 }
 
 @media (max-width: 768px) {
@@ -633,7 +634,7 @@ section {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 800;
     color: var(--dark);
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     position: relative;
     display: inline-block;
 }
@@ -641,7 +642,7 @@ section {
 .section-title::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -15px;
     left: 50%;
     transform: translateX(-50%) scaleX(0);
     width: 80px;
@@ -649,6 +650,10 @@ section {
     background: linear-gradient(90deg, var(--accent), var(--accent-light));
     border-radius: 2px;
     transition: transform 0.6s ease;
+}
+
+.section-title {
+    margin-bottom: 2rem;
 }
 
 .section-intro.animate .section-title::after {
@@ -659,6 +664,20 @@ section {
     font-size: 1.2rem;
     color: var(--gray);
     font-weight: 400;
+    margin-top: 0.5rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .section-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-subtitle {
+        font-size: 1rem;
+    }
 }
 
 /* ============================================
@@ -849,13 +868,6 @@ section {
     }
 }
 
-@media (max-width: 640px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-}
-
 @media (max-width: 768px) {
     .projects-grid {
         grid-template-columns: 1fr;
@@ -888,6 +900,10 @@ section {
     transform: translateY(-12px) scale(1.01);
     box-shadow: var(--shadow-lg);
     border-color: rgba(26, 77, 140, 0.1);
+}
+
+.project-card:active {
+    transform: translateY(-8px) scale(1.005);
 }
 
 .project-card::after {
@@ -1038,6 +1054,7 @@ section {
     flex-direction: column;
     flex-grow: 1;
     gap: 0;
+    position: relative;
 }
 
 @media (max-width: 768px) {
@@ -1047,8 +1064,8 @@ section {
 }
 
 .project-header {
-    margin-bottom: 1.25rem;
-    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
     border-bottom: 1px solid var(--gray-light);
 }
 
@@ -1082,15 +1099,16 @@ section {
     font-size: 0.95rem;
     color: var(--gray);
     font-weight: 500;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
     font-style: italic;
+    line-height: 1.5;
 }
 
 .project-description {
     color: var(--gray);
     line-height: 1.85;
     font-size: 1rem;
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.5rem;
     flex-grow: 1;
     min-height: 80px;
 }
@@ -1100,7 +1118,8 @@ section {
     flex-wrap: wrap;
     gap: 0.75rem;
     margin-top: auto;
-    animation: fadeInUp 0.6s ease 0.3s both;
+    padding-top: 1rem;
+    border-top: 1px solid var(--gray-light);
 }
 
 .feature-badge {
@@ -1115,6 +1134,7 @@ section {
     font-weight: 600;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid transparent;
+    position: relative;
 }
 
 .feature-badge::before {
@@ -1122,6 +1142,7 @@ section {
     font-size: 0.75rem;
     font-weight: 700;
     opacity: 0.7;
+    transition: opacity 0.3s ease;
 }
 
 .project-card:hover .feature-badge {
@@ -1134,6 +1155,7 @@ section {
 
 .project-card:hover .feature-badge::before {
     opacity: 1;
+    color: var(--white);
 }
 
 @media (max-width: 768px) {
