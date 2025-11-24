@@ -893,7 +893,7 @@ section {
 .project-card::after {
     content: 'View Details';
     position: absolute;
-    bottom: 2rem;
+    bottom: 1.75rem;
     left: 50%;
     transform: translateX(-50%) translateY(20px);
     background: var(--accent);
@@ -909,13 +909,39 @@ section {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     white-space: nowrap;
     box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
-    z-index: 10;
+    z-index: 15;
 }
 
-.project-card:hover::after {
+.project-image-wrapper::after {
+    content: 'View Details';
+    position: absolute;
+    bottom: 1.75rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--accent);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+    z-index: 15;
+}
+
+.project-card:hover .project-image-wrapper::after {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
     box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+}
+
+.project-card::after {
+    display: none;
 }
 
 .project-image-wrapper {
@@ -974,6 +1000,12 @@ section {
     padding: 1.75rem;
     opacity: 1;
     transition: all 0.4s ease;
+    z-index: 5;
+}
+
+.project-badge {
+    position: relative;
+    z-index: 10;
 }
 
 .project-card:hover .project-overlay {
@@ -1135,7 +1167,7 @@ section {
         font-size: 0.95rem;
     }
     
-    .project-card::after {
+    .project-image-wrapper::after {
         font-size: 0.75rem;
         padding: 0.6rem 1.2rem;
         bottom: 1.5rem;
