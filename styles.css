@@ -1245,19 +1245,42 @@ section {
     border: 2px solid transparent;
 }
 
+.info-item-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    display: flex;
+    gap: 1.75rem;
+    padding: 2rem;
+    background: var(--gray-light);
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+}
+
+.info-item-link:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
 .info-item:hover {
     border-color: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
-    .info-item {
+    .info-item,
+    .info-item-link {
         padding: 1.5rem;
         gap: 1rem;
     }
 }
 
 @media (max-width: 480px) {
-    .info-item {
+    .info-item,
+    .info-item-link {
         padding: 1.25rem;
         border-radius: 12px;
         flex-direction: column;
@@ -1315,17 +1338,41 @@ section {
     font-weight: 700;
 }
 
-.info-details p,
-.info-details a {
+.info-details p {
     color: var(--gray);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.info-details a {
+    color: var(--primary);
     text-decoration: none;
     font-size: 1.05rem;
     line-height: 1.7;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+    font-weight: 500;
+}
+
+.info-details a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
 }
 
 .info-details a:hover {
-    color: var(--primary);
+    color: var(--accent);
+    transform: translateX(3px);
+}
+
+.info-details a:hover::after {
+    width: 100%;
 }
 
 .contact-map {
@@ -1722,8 +1769,7 @@ section {
     margin-bottom: 0.75rem;
 }
 
-.footer-links ul li a,
-.footer-contact a {
+.footer-links ul li a {
     color: var(--white);
     text-decoration: none;
     opacity: 0.8;
@@ -1731,11 +1777,41 @@ section {
     display: inline-block;
 }
 
-.footer-links ul li a:hover,
+.footer-links ul li a:hover {
+    opacity: 1;
+    transform: translateX(5px);
+    color: var(--accent);
+}
+
+.footer-contact a {
+    color: var(--white);
+    text-decoration: none;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-contact a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
 .footer-contact a:hover {
     opacity: 1;
     transform: translateX(5px);
     color: var(--accent);
+}
+
+.footer-contact a:hover::after {
+    width: 100%;
 }
 
 .footer-contact p {
