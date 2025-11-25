@@ -135,6 +135,20 @@ function initWebsite() {
                         entry.target.classList.add('animate');
                     }, index * 150);
                 }
+                
+                // Animate service cards
+                if (entry.target.classList.contains('service-card')) {
+                    setTimeout(() => {
+                        entry.target.classList.add('animate');
+                    }, index * 150);
+                }
+                
+                // Animate area items
+                if (entry.target.classList.contains('area-item')) {
+                    setTimeout(() => {
+                        entry.target.classList.add('animate');
+                    }, index * 50);
+                }
             }
         });
     }, observerOptions);
@@ -164,6 +178,16 @@ function initWebsite() {
     // Observe project cards
     document.querySelectorAll('.project-card').forEach(card => {
         observer.observe(card);
+    });
+    
+    // Observe service cards
+    document.querySelectorAll('.service-card').forEach(card => {
+        observer.observe(card);
+    });
+    
+    // Observe area items
+    document.querySelectorAll('.area-item').forEach(item => {
+        observer.observe(item);
     });
 
     // Project Card Click Functionality
